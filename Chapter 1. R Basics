@@ -1,0 +1,108 @@
+## Packages
+# to install a single package
+install.packages("")
+
+# to install two packages at the same time
+install.packages(c("", ""))
+
+# to see the list of all installed packages
+installed.packages()
+
+You can add the option dependencies = TRUE, which tells R to install the other things that are necessary for the package or packages to run smoothly. Otherwise you may need to install additional packages to unlock the full functionality of a package.
+
+pipe = %>% and it comes from the tidyverse package.
+
+## Keyboard shortcuts
+Save a script: Ctrl+S on Windows and Command+S on Mac
+Run an entire script:  Ctrl+Shift+Enter on Windows Command+Shift+Return on Mac, or click "Source" on the editor pane
+Run a single line of script: Ctrl+Enter on Windows and Command+Return on Mac while the cursor is pointing to that line, or select the chunk and click "run"
+Open a new script: Ctrl+Shift+N on Windows and Command+Shift+N on Mac
+
+## Functions
+ls() is a function that shows you the names of the objects you save.
+So for example if you assign a <- 1, b <- -1 and c <- 2, then ls() would show "a", "b", "c".
+
+print() function prints the argument you type.
+You can type print(variable_name) to see the value stored in a variable.
+
+## Code example: solve the equation x2+x-1=0
+# assigning values to variables
+a <-1
+b <-1
+c <--1
+
+# solving the quadratic equation
+(-b + sqrt(b^2 - 4*a*c))/(2*a)
+(-b - sqrt(b^2 - 4*a*c))/(2*a)
+
+Once you define variables, a data analysis process can usually be described as a series of functions applied to the data.
+
+exp() stands for expotential.
+so exp(1) would equal to 2.718.
+log(2.718) equals to 1.
+These are inverse functions.
+At the same time, log(exp(1)) would also equal to 1.
+It's important to remember that functions are evaluated from the insite out when you nest them.
+
+If you are not sure how a function works, you can find out using help().
+If you already know how the function works but need a quick reminder of the arguments, you can use the args() function.
+e.g. args(log)
+     function(x,base=exp(1))
+     NULL
+
+You can change the default value by simply assigning another value. For example, if instead of natural log we want to get log base 2, we would type:
+log(8, base=2) and it would equal to 3.
+Likewise, log(8,2) also equals to 3.
+
+There are also other mathematical objects that are pre-built, such as the constant for pi and the infinity number.
+
+### DataCamp Exercise
+## Using variables 1
+What is the sum of the first n positive integers?
+We can use the formula n(n+1)/2 to quickly compute this quantity.
+
+# Here is how you compute the sum for the first 20 integers
+20*(20+1)/2 
+
+# However, we can define a variable to use the formula for other values of n
+n <- 20
+n*(n+1)/2
+
+n <- 25
+n*(n+1)/2
+
+# Write a code to calculate the sum of the first 100 integers
+n <- 100
+n*(n+1)/2
+
+## Using variables 2
+What is the sum of the first 1000 positive integers?
+n <- 1000
+n*(n+1)/2
+
+### Functions
+Run this code:
+n <- 1000
+x <- seq(1,n)
+sum(x)
+
+Based on the result, what do you think the functions seq and sum do?
+seq creates a list of numbers and sum adds them up.
+
+### Nested function calls 1
+In math and programming we say we evaluate a function when we replace arguments with specific values. So if we type log2(16) we evaluate the log2 function to get the log base 2 of 16 which is 4.
+In R is often useful to evaluate a function inside another function.
+For example, sqrt(log2(16)) will calculate the log to the base 2 of 16 and then compute the square root of that value. So the first evaluation gives a 4 and this gets evaluated by sqrt to give the final answer of 2.
+
+# log to the base 2 
+log2(16)
+
+# sqrt of the log to the base 2 of 16:
+sqrt(log2(16))
+
+# Compute log to the base 10 (log10) of the sqrt of 100. Do not use variables.
+sqrt(log10(100))
+
+### Nested functions call 2
+Which function will always return the numeric value stored in x?
+log(exp(x))
