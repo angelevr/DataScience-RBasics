@@ -106,3 +106,11 @@ sqrt(log10(100))
 ### Nested functions call 2
 Which function will always return the numeric value stored in x?
 log(exp(x))
+
+### Back to Edx course
+Variables in R can be of different types. For example, we need to distinguish numbers from character strings and tables from simple list of numbers.
+The function class() helps us determine the type of an object.
+The most common way of storing data sets in R is with data frames. Conceptually, we can think of data frames as tables. Rows represent observations, and different variables are represented by different columns.
+Data frames are particularly useful for data sets because we can combine different types into one single object.
+To find more information about an object, we can use the str() function, which stands for structure, and it shows us the structure of an object.
+
