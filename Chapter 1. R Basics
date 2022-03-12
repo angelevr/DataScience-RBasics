@@ -114,3 +114,68 @@ The most common way of storing data sets in R is with data frames. Conceptually,
 Data frames are particularly useful for data sets because we can combine different types into one single object.
 To find more information about an object, we can use the str() function, which stands for structure, and it shows us the structure of an object.
 
+We can also show the first six lines of this data frame using the function head(). 
+
+Factors are useful for storing what is called categorical data. Regions for example are categorical.
+To access data from columns of a data frame, we use the dollar sign symbol, $, which is called the accessor.
+A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector.
+
+## Code
+# loading the dslabs package and the murders dataset
+library(dslabs)
+data(murders)
+
+# determining that the murders dataset is of the "data frame" class
+class(murders)
+# finding out more about the structure of the object
+str(murders)
+# showing the first 6 lines of the dataset
+head(murders)
+
+# using the accessor operator to obtain the population column
+murders$population
+# displaying the variable names in the murders dataset
+names(murders)
+# determining how many entries are in a vector
+pop <- murders$population
+length(pop)
+# vectors can be of class numeric and character
+class(pop)
+class(murders$state)
+
+# logical vectors are either TRUE or FALSE
+z <- 3 == 2
+z
+class(z)
+
+# factors are another type of class
+class(murders$region)
+# obtaining the levels of a factor
+levels(murders$region)
+
+### DataCamp - Data Types
+Using the str() command, we saw that the region column stores a factor. You can corroborate this by using the class command on the region column.
+The function levels shows us the categories for the factor.
+For this question we will combine two functions, in a nested way, to determine the number of unique categories. Use the functions levels and length to determine the number of regions defined by this dataset and contained in murders$region.
+
+# We can see the class of the region variable using class
+class(murders$region)
+
+# Determine the number of regions included in this variable 
+length(levels(murders$region))
+
+# The "c" in `c()` is short for "concatenate," which is the action of connecting items into a chain
+# The function `c()` connects all of the strings within it into a single vector, which we can assign to `x`
+x <- c("a", "a", "b", "b", "b", "c")
+# Here is an example of what the table function does
+table(x)
+x
+a    b    c
+2    3    1
+
+so:
+table(murders$region)
+
+    Northeast         South North Central          West 
+            9            17            12            13
+
