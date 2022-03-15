@@ -143,3 +143,171 @@ x
 rank(x)    # returns ranks (smallest to largest)
 
 ## Data Camp
+# Access the `state` variable and store it in an object 
+states <- murders$state 
+
+# Sort the object alphabetically and redefine the object 
+states <- sort(states) 
+
+# Report the first alphabetical value  
+states[1]
+
+Rhe function order() returns the index vector needed to sort the vector. This implies that sort(x) and x[order(x)] give the same result.
+
+This can be useful for finding row numbers with certain properties such as "the row for the state with the smallest population". Remember that when we extract a variable from a data frame the order of the resulting vector is the same as the order of the rows of the data frame. So for example, the entries of the vector murders$state are ordered in the same way as the states if you go down the rows of murders.
+
+# Access population from the dataset and store it in pop
+pop <- murders$population
+
+# Use the command order to find the vector of indexes that order pop and store in object ord
+ord <- order(pop)
+
+# Find the index number of the entry with the smallest population size
+which.min(murders$population)
+
+# Find the index of the smallest value for variable total 
+which.min(murders$total)
+
+# Find the index of the smallest value for population
+which.min(murders$population)
+
+# Define the variable i to be the index of the smallest state
+i <- which.min(murders$population)
+
+# Define variable states to hold the states
+states <- murders$state
+
+# Use the index you just defined to find the state with the smallest population
+states[i]
+
+# Store temperatures in an object 
+temp <- c(35, 88, 42, 84, 81, 30)
+
+# Store city names in an object 
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+
+# Create data frame with city names and temperature 
+city_temps <- data.frame(name = city, temperature = temp)
+
+# Define a variable states to be the state names 
+states <- murders$state
+
+# Define a variable ranks to determine the population size ranks 
+ranks <- rank(murders$population)
+
+# Create a data frame my_df with the state name and its rank
+my_df <- data.frame(name = states, rank = ranks)
+
+# Define a variable states to be the state names from the murders data frame
+states <- murders$state
+
+# Define a variable ranks to determine the population size ranks 
+ranks <- rank(murders$population)
+
+# Define a variable ind to store the indexes needed to order the population values
+ind <- order(murders$population)
+
+# Create a data frame my_df with the state name and its rank and ordered from least populous to most 
+my_df <- data.frame(states = states[ind], ranks = ranks[ind])
+
+The na_example dataset represents a series of counts. It is included in the dslabs package. You can quickly examine the object using
+
+library(dslabs)
+data(na_example)
+str(na_example)
+
+However, when we compute the average we obtain an NA. You can see this by typing: mean(na_example)
+
+The is.na returns a logical vector that tells us which entries are NA.
+
+# Using new dataset 
+library(dslabs)
+data(na_example)
+
+# Checking the structure 
+str(na_example)
+
+# Find out the mean of the entire dataset 
+mean(na_example)
+
+# Use is.na to create a logical index ind that tells which entries are NA
+ind <- is.na(na_example)
+
+# Determine how many NA ind has using the sum function
+sum(ind)
+
+We previously computed the average of na_example using mean(na_example) and obtain NA. This is because the function mean returns NA if it encounters at least one NA. A common operation is therefore removing the entries that are NA and after that perform operations on the rest.
+
+# Note what we can do with the ! operator
+x <- c(1, 2, 3)
+ind <- c(FALSE, TRUE, FALSE)
+x[!ind]
+
+# Create the ind vector
+library(dslabs)
+data(na_example)
+ind <- is.na(na_example)
+
+# We saw that this gives an NA
+mean(na_example)
+
+# Compute the average, for entries of na_example that are not NA 
+mean(na_example[!ind])
+
+
+### Vector arithmetic
+In R, arithmetic operations on vectors occur element-wise.
+
+# The name of the state with the maximum population is found by doing the following
+murders$state[which.max(murders$population)]
+
+# how to obtain the murder rate
+murder_rate <- murders$total / murders$population * 100000
+
+# ordering the states by murder rate, in decreasing order
+murders$state[order(murder_rate, decreasing=TRUE)]
+
+# Assign city names to `city` 
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+
+# Store temperature values in `temp`
+temp <- c(35, 88, 42, 84, 81, 30)
+
+# Convert temperature into Celsius and overwrite the original values of 'temp' with these Celsius values
+temp <- 5/9*(temp-32)
+
+# Create a data frame `city_temps` 
+city_temps <- data.frame(name=city,temperature=temp)
+
+# Define an object `x` with the numbers 1 through 100
+x <- c(1:100)
+
+# Compute the sum 
+sum(1/x^2)
+
+# Load the data
+library(dslabs)
+data(murders)
+
+# Store the per 100,000 murder rate for each state in murder_rate
+murder_rate <- murders$total/murders$population *100000
+
+# Calculate the average murder rate in the US 
+mean(murder_rate)
+
+### Assessment 2 Overview
+name <- c("Mandi", "Amy", "Nicole", "Olivia")
+distance <- c(0.8, 3.1, 2.8, 4.0) # miles
+time <- c(10, 30, 40, 50) # minutes
+
+# need to convert time to hours
+mit <- time/60
+mit
+
+# calculate the speed of each runner in miles per hour. Speed is distance divided by time
+distance/mit
+
+
+
+
+
